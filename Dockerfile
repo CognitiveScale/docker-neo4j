@@ -3,6 +3,9 @@
 FROM debian:jessie
 MAINTAINER Indy Beck indy@c12e.com
 
+RUN apt-get update && \
+   apt-get install supervisor wget
+
 RUN wget -q -O /tmp/neo4j-community-2.1.5-unix.tar.gz http://dist.neo4j.org/neo4j-community-2.1.5-unix.tar.gz && \
    tar -zxf /tmp/neo4j-community-2.1.5-unix.tar.gz -C /opt && \
    ln -s /opt/neo4j-community-2.1.5 /opt/neo4j && \
@@ -13,9 +16,6 @@ ADD neo4j-server.properties /opt/neo4j/conf/neo4j-server.properties
 ADD neo4j-wrapper.conf /opt/neo4j/conf/neo4j-wrapper.conf
 ADD neo4j.properties /opt/neo4j/conf/neo4j.properties
 RUN mkdir -p /data
-
-RUN apt-get update && \
-   apt-get install supervisor
 
 # supervisord
 ADD neo4j_supervisor.conf /etc/supervisor/supervisord.conf
