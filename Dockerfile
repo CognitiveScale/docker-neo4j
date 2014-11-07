@@ -4,7 +4,7 @@ FROM debian:jessie
 MAINTAINER Indy Beck indy@c12e.com
 
 RUN apt-get update && \
-   apt-get install supervisor wget
+   apt-get install -y supervisor wget
 
 RUN wget -q -O /tmp/neo4j-community-2.1.5-unix.tar.gz http://dist.neo4j.org/neo4j-community-2.1.5-unix.tar.gz && \
    tar -zxf /tmp/neo4j-community-2.1.5-unix.tar.gz -C /opt && \
