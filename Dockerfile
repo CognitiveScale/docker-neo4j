@@ -1,6 +1,6 @@
 # cognitivescale/neo4j
 
-FROM debian:jessie
+FROM c12e/debian
 MAINTAINER Indy Beck indy@c12e.com
 
 RUN apt-get update && \
