@@ -17,7 +17,7 @@ RUN wget -q -O /tmp/neo4j-community-${NEO4J_VERSION}-unix.tar.gz http://dist.neo
 ADD neo4j-server.properties /opt/neo4j/conf/neo4j-server.properties
 ADD neo4j-wrapper.conf /opt/neo4j/conf/neo4j-wrapper.conf
 ADD neo4j.properties /opt/neo4j/conf/neo4j.properties
-RUN mkdir -p /data
+RUN mkdir -p /data /logs
 
 # supervisord
 ADD neo4j_supervisor.conf /etc/supervisor/supervisord.conf
