@@ -6,7 +6,7 @@ MAINTAINER Indy Beck indy@c12e.com
 RUN apt-get update && \
    apt-get install -y supervisor wget
 
-ENV NEO4J_VERSION 2.2.0-M02
+ENV NEO4J_VERSION 2.2.0-RC01
 
 RUN wget -q -O /tmp/neo4j-community-${NEO4J_VERSION}-unix.tar.gz http://dist.neo4j.org/neo4j-community-${NEO4J_VERSION}-unix.tar.gz && \
    tar -zxf /tmp/neo4j-community-${NEO4J_VERSION}-unix.tar.gz -C /opt && \
