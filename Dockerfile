@@ -1,11 +1,16 @@
 # cognitivescale/neo4j
 
 FROM c12e/debian
-MAINTAINER Indy Beck indy@c12e.com
+MAINTAINER CogntiveScale.com
+
+ENV SERVICE_NAME=neo4j
+ADD supervisor.conf /etc/supervisor/conf.d/${SERVICE_NAME}.conf
 
 RUN apt-get update && \
-   apt-get install -y supervisor wget
-
+  apt-get install -y supervisor wget && \
+  mkdir -p /data /logs && \
+  rm -rf /var/cache/apt/* /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
+   
 ENV NEO4j_VERSION 2.0.2
 
 RUN wget -q -O /tmp/neo4j-community-$NEO4j_VERSION-unix.tar.gz http://dist.neo4j.org/neo4j-community-$NEO4j_VERSION-unix.tar.gz && \
@@ -17,12 +22,8 @@ RUN wget -q -O /tmp/neo4j-community-$NEO4j_VERSION-unix.tar.gz http://dist.neo4j
 ADD neo4j-server.properties /opt/neo4j/conf/neo4j-server.properties
 ADD neo4j-wrapper.conf /opt/neo4j/conf/neo4j-wrapper.conf
 ADD neo4j.properties /opt/neo4j/conf/neo4j.properties
-RUN mkdir -p /data
-
-# supervisord
-ADD neo4j_supervisor.conf /etc/supervisor/supervisord.conf
 
 # Ports
 EXPOSE 7474
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
