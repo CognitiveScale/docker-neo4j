@@ -3,7 +3,6 @@
 FROM c12e/debian
 MAINTAINER CogntiveScale.com
 
-ENV SERVICE_NAME=neo4j
 ADD supervisor.conf /etc/supervisor/conf.d/${SERVICE_NAME}.conf
 
 RUN apt-get update && \
