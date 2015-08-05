@@ -3,7 +3,7 @@
 FROM c12e/debian
 MAINTAINER CognitiveScale.com
 
-ADD supervisor.conf /etc/supervisor/conf.d/${SERVICE_NAME}.conf
+ADD supervisor.conf /etc/supervisor/conf.d/neo4j.conf
 
 RUN apt-get update && \
    apt-get install -y supervisor wget
