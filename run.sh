@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# env var: C12E_DATA_VOL_TYPE=efs
+# C12E_DATA_VOL_TYPE=efs
 # C12E_EFS_FS_ID=fs-xxxxxx
-# C12E_EFS_MOUNTPOINT
+# C12E_EFS_MOUNTPOINT=/efs
 # C12E_SERVICE_NAME=neo4j
-# C12E_SLUG=triton1
+# C12E_SLUG=triton
 
 vol_type=${C12E_DATA_VOL_TYPE:-local}
-efs_mount=${C12E_EFS_MOUNTPOINT:-}
+efs_mount=${C12E_EFS_MOUNTPOINT:-/efs}
 service_name=${C12E_SERVICE_NAME:-neo4j}
 slug=${C12E_SLUG:-triton}
 

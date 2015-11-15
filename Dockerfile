@@ -9,6 +9,8 @@ RUN wget -q -O /var/lib/neo4j/lib/c12e-plugin-1.0.0.jar https://s3.amazonaws.com
   apt-get install -y curl nfs-common && \
   rm -rf /var/cache/apt/* /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
 
+COPY run.sh /run.sh
+
 EXPOSE 7474 7473
 
-CMD ["/docker-entrypoint.sh", "neo4j"]
+CMD ["run.sh"]
