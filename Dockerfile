@@ -13,4 +13,4 @@ COPY run.sh /run.sh
 
 EXPOSE 7474 7473
 
-CMD ["run.sh"]
+CMD ["/run.sh"]
