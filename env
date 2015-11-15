@@ -1,0 +1,5 @@
+export C12E_DATA_VOL_TYPE=efs
+export C12E_EFS_MOUNTPOINT=/efs
+export C12E_EFS_FS_ID=fs-xxxxxx
+export C12E_SERVICE_NAME=neo4j
+export C12E_SLUG=triton1
